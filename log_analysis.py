@@ -4,6 +4,7 @@ import psycopg2
 # Set database name
 DBNAME = 'news'
 
+
 # Create function to connect to database
 def connectDatabase(query):
     """
@@ -18,8 +19,9 @@ def connectDatabase(query):
         return result
         database.close()
 
-    except :
+    except:
         print("Can not connect to the database")
+
 
 # Create function question_one
 def question_one():
@@ -38,6 +40,7 @@ def question_one():
     for result in result_one:
         print('"' + result[0] + '" -- ' + str(result[1]) + " views")
     print('\n')
+
 
 # Create function question_two
 def question_two():
@@ -58,6 +61,7 @@ def question_two():
         print('"' + result[0] + '" -- ' + str(result[1]) + " views")
     print('\n')
 
+
 # Create function question_three
 def question_three():
     """
@@ -65,7 +69,8 @@ def question_three():
     On which days did more than 1% of requests lead to errors?
     """
     query_three = """
-    SELECT total.day AS day, ((errors.error_num/total.total_num)*100) AS percentage
+    SELECT total.day AS day, ((errors.error_num/total.total_num)*100)
+    AS percentage
     FROM total, errors
     WHERE ((errors.error_num/total.total_num)*100) > 1
     AND total.day = errors.day
