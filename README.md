@@ -92,6 +92,7 @@ This is one of projects of Full Stack Udacity Nanodegree. Main reason is to eval
 3. Copy `log_analysis.py` to shared folder vagrant and run command `python3 log_analysis.py`from terminal on virtual machine
 
 Results will be generated on terminal window.
+An example of result can be seen from `Result_Out.txt`
 
 ## Views 
 For questions 3, I use two views as below:
