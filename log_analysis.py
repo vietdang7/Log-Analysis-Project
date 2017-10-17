@@ -79,9 +79,10 @@ def question_three():
     result_three = connectDatabase(query_three)
     print('3. On which days did more than 1% of requests lead to errors?')
     for result in result_three:
-        print (result[0], "--", str(result[1]) + "% errors")
+        print(result[0], "--", str(result[1]) + "% errors")
     print('\n')
 
+    
 question_one()
 question_two()
 question_three()
