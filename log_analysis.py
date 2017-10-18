@@ -1,5 +1,8 @@
+#!/usr/bin/env python3
+
 # Import Python DB API for PSQL
 import psycopg2
+
 
 # Set database name
 DBNAME = 'news'
@@ -16,11 +19,11 @@ def connectDatabase(query):
         cursor = database.cursor()
         cursor.execute(query)
         result = cursor.fetchall()
-        return result
         database.close()
+        return result
 
-    except:
-        print("Can not connect to the database")
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
 
 
 # Create function question_one
@@ -69,7 +72,8 @@ def question_three():
     On which days did more than 1% of requests lead to errors?
     """
     query_three = """
-    SELECT total.day AS day, ((errors.error_num/total.total_num)*100)
+    SELECT total.day AS day,
+    ROUND(((errors.error_num/total.total_num)*100)::numeric, 2)
     AS percentage
     FROM total, errors
     WHERE ((errors.error_num/total.total_num)*100) > 1
@@ -79,10 +83,12 @@ def question_three():
     result_three = connectDatabase(query_three)
     print('3. On which days did more than 1% of requests lead to errors?')
     for result in result_three:
-        print(result[0], "--", str(result[1]) + "% errors")
+        print(result[0].strftime('%B %d, %Y') + " -- " +
+              str(result[1]) + "%" +
+              " errors")
     print('\n')
 
-    
-question_one()
-question_two()
-question_three()
+if __name__ == '__main__':
+    question_one()
+    question_two()
+    question_three()
