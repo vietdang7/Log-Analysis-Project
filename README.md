@@ -136,5 +136,5 @@ If you want to make contribution for this project, feel free to `fork` this proj
 
 ## License
 
-- Copyright of `news.sql`, FSND-Virtual-Machine.zip  is belong to [Udacity](https://github.com/udacity/).
+- Copyright of `news.sql`, FSND-Virtual-Machine.zip are belong to [Udacity](https://github.com/udacity/).
 - This project is licensed under the MIT license
