@@ -73,27 +73,34 @@ def question_two():
 
 ## Why I create this project?
 This is one of projects of Full Stack Udacity Nanodegree. Main reason is to evaluate the skills I have learnt so far (Python and SQL).
+Database used in this project is a PostgreSQL database (named `news`) for a fictional news website.
 
 ## Project's question
 1. What are the most popular three articles of all time?
 2. Who are the most popular article authors of all time?
 3. On which days did more than 1% of requests lead to errors?
 
+## Structure of the database 
+
+
 ## Getting Started
 ### Prerequisites
 1. You need to have `Python3` 
-2. Vagrant
-3. VirtualBox
-4. Code editor like **Atom** or **Sublime**
+2. [Vagrant](https://www.vagrantup.com/downloads.html)
+3. [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
 ### Installation
 1. Clone this project (Using `git`command: `git clone https://github.com/vietdang7/Log-Analysis-Project.git` or through your GitDesktop application)
 2. Install VirtualBox
 3. Install Vagrant
+4. Download this [FSND-Virtual-Machine.zip](https://d17h27t6h515a5.cloudfront.net/topher/2017/August/59822701_fsnd-virtual-machine/fsnd-virtual-machine.zip) from Udacity (this will install all needed OS, software in your VirtualBox)
+5. Unzip the file, change to this directory in your terminal - `cd` command.
+6. Run Vagrant by type `vagrant up`, and `vagrant ssh`to log in
+
 
 ## Testing
-1. Run Vagrant by type `vagrant up`, and `vagrant ssh`to log in
-2. Download `news.sql` from Udacity Classroom's site and run command `psql -d news -f newsdata.sql`
+1. Download [`newsdata.zip`](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip) from Udacity Classroom's site and run command `psql -d news -f newsdata.sql`
+2. Create views with this command `psql -d news -f create_views.sql` (`create_views.sql`should be inside Vagrant folder)
 3. Copy `log_analysis.py` to shared folder vagrant and run command `python3 log_analysis.py`from terminal on virtual machine
 
 Results will be generated on terminal window.
@@ -112,7 +119,7 @@ GROUP BY day;
 ```
 
 2. total
-```
+```sql
 CREATE VIEW total AS
 SELECT DATE(log.time) AS day,
 CAST(COUNT(log.status) AS FLOAT) AS total_num 
@@ -121,7 +128,7 @@ GROUP BY day;
 ```
 
 ## Built With
-- Python
+- Python3
 - SQL
 
 ## Contribution
@@ -129,5 +136,5 @@ If you want to make contribution for this project, feel free to `fork` this proj
 
 ## License
 
-- Copyright of news.sql is belong to [Udacity](https://github.com/udacity/).
+- Copyright of `news.sql`, FSND-Virtual-Machine.zip  is belong to [Udacity](https://github.com/udacity/).
 - This project is licensed under the MIT license
