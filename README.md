@@ -4,7 +4,7 @@ The project is created for Udacity Full Stack Nanodegree Programme.
 ## Code Example
 Here are some lines of example code:
 1. log_analysis.py:
-```
+```python
 # Import Python DB API for PSQL
 import psycopg2
 
@@ -74,6 +74,11 @@ def question_two():
 ## Why I create this project?
 This is one of projects of Full Stack Udacity Nanodegree. Main reason is to evaluate the skills I have learnt so far (Python and SQL).
 
+## Project's question
+1. What are the most popular three articles of all time?
+2. Who are the most popular article authors of all time?
+3. On which days did more than 1% of requests lead to errors?
+
 ## Getting Started
 ### Prerequisites
 1. You need to have `Python3` 
@@ -97,7 +102,7 @@ An example of result can be seen from `Result_Output.txt`
 ## Views 
 For questions 3, I use two views as below:
 1. errors
-```
+```sql
 CREATE VIEW errors AS
 SELECT DATE(log.time) AS day,
 CAST(COUNT(log.status) AS FLOAT) AS error_num 
