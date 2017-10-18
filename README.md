@@ -98,7 +98,7 @@ An example of result can be seen from `Result_Output.txt`
 For questions 3, I use two views as below:
 1. errors
 ```
-CREATE VIEW erros AS
+CREATE VIEW errors AS
 SELECT DATE(log.time) AS day,
 CAST(COUNT(log.status) AS FLOAT) AS error_num 
 FROM log
